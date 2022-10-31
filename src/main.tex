@@ -1,0 +1,204 @@
+\documentclass[aspectratio=169]{beamer}
+ 
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set Helvetica Font in Text and Math in LaTeX %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[helvet]{sfmath}
+\usepackage[scaled=1]{helvet}
+\usepackage[T1]{fontenc}
+\renewcommand\familydefault{\sfdefault} 
+\everymath={\sf}
+\usepackage{fontspec}
+
+\usepackage{subcaption}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+%    pdfpagemode=FullScreen,  % uncomment this line to make the pdf open in fullscreen mode by default
+}
+
+% use settings files
+\input{configuration_files/beamer_theme.tex}
+\input{configuration_files/quotations.tex}
+
+% Other packages
+\usepackage{enumitem}
+\setitemize{label=\usebeamerfont*{itemize item}%
+  \usebeamercolor[fg]{itemize item}
+  \usebeamertemplate{itemize item}}
+
+\usepackage{amssymb}
+\newcommand*{\QEDA}{\hfill\ensuremath{\blacksquare}}
+
+\usepackage{datetime}
+\newdateformat{specialdate}{\twodigit{\THEDAY} \ \monthname[\THEMONTH] \THEYEAR}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}
+\newcommand{\yeslogo}{\logo{\includegraphics[width=1.5cm]{./images/ru_logo_transparent}}}
+
+\yeslogo
+
+\newif\ifpause
+\pausetrue
+%\pausefalse
+\newcommand{\mypause}{\ifpause \pause \fi}
+
+%Information to be included in the title page:
+\title{RU Beamer Template}
+\author{Author}
+\institute{Reykjavík University\\Department of Computer Science}
+
+\date{\specialdate\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\begin{frame}{Introduction}
+    This is a simple, minimalistic presentation template made using \LaTeX's Beamer package with the Metropolis theme, and with the colors, fonts, and logo for Reykjavík University.
+    
+    You can adjust the position of the logo on normal frames with the \texttt{logo} command in the \texttt{configuration\_files/beamer\_theme.tex} file.
+    
+\end{frame}
+
+% each frame is a slide
+\begin{frame}{General Text: Normal, Italicized, Bold, Bold-Italicized}
+    \begin{itemize}
+        \item Lorem ipsum dolor sit amet consectetuer adipiscing elit.
+        \item \textit{Lorem ipsum dolor sit amet consectetuer adipiscing elit.}
+        \item \textbf{Lorem ipsum dolor sit amet consectetuer adipiscing elit.}
+        \item \textbf{\textit{Lorem ipsum dolor sit amet consectetuer adipiscing elit.}}
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Example Math}
+    Testing math fonts.
+    
+    $$\int_{1}^{\infty} \frac{1}{x^2} dx = \lim_{b \rightarrow \infty} \int_{1}^{b} \frac{1}{x^2} dx = \lim_{b \rightarrow \infty} \left( - \frac{1}{b} + \frac{1}{1} \right) = 1$$
+    
+    \[
+    \left[
+	\begin{matrix}
+		-2 & 1 & 0 & 0 & \cdots & 0  \\
+		1 & -2 & 1 & 0 & \cdots & 0  \\
+		0 & 1 & -2 & 1 & \cdots & 0  \\
+		0 & 0 & 1 & -2 & \ddots & \vdots \\
+		\vdots & \vdots & \vdots & \ddots & \ddots & 1  \\
+		0 & 0 & 0 & \cdots & 1 & -2
+	\end{matrix}
+	\right]
+    \]
+    
+\end{frame}
+
+\begin{frame}{More Math}
+    \begin{eqnarray}
+    	\omega_1 & = &
+    	\frac{\partial w}{\partial y}-\frac{\partial v}{\partial z}\,,
+    	\nonumber  \\
+    	\omega_2 & = & 
+    	\frac{\partial u}{\partial z}-\frac{\partial w}{\partial x}\,,
+    	\label{eqcurl}  \\
+    	\omega_3 & = & 
+    	\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}\,.
+    	\nonumber
+    \end{eqnarray}
+    
+    \begin{eqnarray*}
+    	(p\wedge q)\vee(p\wedge\neg q) & = & p\wedge(q\vee\neg q)
+    	\quad\text{by distributive law}  \\
+    	 & = & p\wedge T \quad\text{by excluded middle}  \\
+    	 & = & p \quad\text{by identity} \;\blacksquare
+    \end{eqnarray*}
+    
+\end{frame}
+
+\begin{frame}{}
+    You can make frames with no title bar by simply leaving the title argument blank.
+
+\end{frame}
+
+\begin{frame}{Column Environments}
+    \begin{columns}
+        \begin{column}{0.47\textwidth}
+            \includegraphics[width=\textwidth]{example-image-a}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \footnotesize
+            Use the \texttt{column} environment to divide slides horizontally.
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Activate/deactivate page logo}
+	Use \texttt{\textbackslash nologo} or \texttt{\textbackslash yeslogo}
+	\emph{before} creating a new frame
+	to enable or disable the
+	logo in the bottom right of the frame.
+\end{frame}
+
+\nologo
+\begin{frame}{Image and Text Side by Side}
+    \begin{columns}
+        \begin{column}{0.47\textwidth}
+            \includegraphics[width=\textwidth]{example-image-b}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \footnotesize
+		\lipsum[10]
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Image and Text Side by Side (Other Way)}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \footnotesize
+		\lipsum[11]
+        \end{column}
+        \begin{column}{0.47\textwidth}
+            \includegraphics[width=\textwidth]{example-image-c}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Quotations}
+    Configure the settings for quotations in the \texttt{configuration\_files/quotations.tex} file.
+\end{frame}
+
+\begin{frame}{Quotation}
+    \begin{shadequote}[r]{Speaker}
+	    \lipsum[4]
+    \end{shadequote}
+\end{frame}
+
+\yeslogo
+\begin{frame}{Citations}
+
+    \begin{itemize}
+        \item This is a cited sentence.\cite{einstein}
+        \item This is a cited sentence.\cite{dirac}
+        \item This is a cited sentence.\cite{knuthwebsite}
+        \item This is a cited sentence.\cite{knuth-fa}
+    \end{itemize}
+    
+\end{frame}
+
+\setbeamertemplate{bibliography item}[triangle]
+\begin{frame}{References}
+        \bibliographystyle{plain}
+        \bibliography{references}
+\end{frame}
+
+\end{document}

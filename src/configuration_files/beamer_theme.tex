@@ -1,0 +1,72 @@
+\usetheme[progressbar=frametitle]{metropolis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Color settings
+\definecolor{ru_white}{HTML}{FFFFFF}
+\definecolor{ru_red}{HTML}{ed1c24}
+\definecolor{black}{HTML}{000000}
+\definecolor{gray}{HTML}{A9A9A9}
+\definecolor{light_gray}{HTML}{E0E0E0}
+\setbeamercolor{frametitle}
+{
+  use=palette primary,
+  parent=palette primary,
+  fg = ru_white,
+  bg = ru_red
+}
+% fg means "foreground" and bg means "background"
+\setbeamercolor{title separator}{ fg=ru_red }
+\setbeamercolor{section bar}{ fg=ru_red, bg=ru_red }
+\setbeamercolor{progress bar in section page}{
+%   use=progress bar,
+%   parent=progress bar
+    fg=black,
+    bg=ru_red
+}
+
+\setbeamercolor{normal text}{%
+  fg=black,
+  bg=white
+}
+\setbeamercolor{alerted text}{%
+  fg=ru_red,
+}
+\setbeamercolor{example text}{%
+  fg=black,
+}
+
+% \addtobeamertemplate{section page}{}{\vspace{0.35\paperwidth}\hspace*{0.78\paperwidth}\includegraphics[width=.1\textwidth]{images/ru_logo_transparent.png}}
+% \addtobeamertemplate{section page}{
+% \begin{center}\includegraphics[width=.1\textwidth]{images/ru_logo_transparent.png}\end{center}
+% }{}
+% \addtobeamertemplate{section page}{}{\titlegraphic}
+
+\setbeamercolor{progress bar in head/foot}{ fg=black, bg=gray } % use this line to enable the progress bar
+% \setbeamercolor{progress bar in head/foot}{ fg=black, bg=black } % use this line to have a divider instead of a progress bar
+
+% \setbeamertemplate{frame numbering}{} % uncomment this line to remove slide numbers
+\titlegraphic{\hfill\includegraphics[height=2.0cm]{images/ru_logo_transparent.png}}
+% \sectiongraphic{\hfill\includegraphics[height=2.0cm]{images/ru_logo_transparent.png}}
+\logo{\includegraphics[width=.1\textwidth]{images/ru_logo_transparent.png}\vspace{-0.05\paperwidth}\hspace*{.04\paperwidth}} % uncomment this line to include the RU logo on each slide
+
+\setbeamertemplate{itemize items}[default]
+
+\setbeamerfont{bibliography entry author}{size=\tiny,series=\normalfont}
+\setbeamerfont{bibliography entry title}{size=\tiny,series=\bfseries}
+\setbeamerfont{bibliography entry location}{size=\tiny,series=\normalfont}
+\setbeamerfont{bibliography entry note}{size=\tiny,series=\normalfont}
+
+\makeatletter
+\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}               % thickness of progress bar on normal pages
+\setlength{\metropolis@titleseparator@linewidth}{0.5pt}                 % thickness of separator on title page
+\setlength{\metropolis@progressonsectionpage@linewidth}{0.5pt}          % thickness of progress bar on section page
+
+
+\setbeamertemplate{frametitle}{%
+    \vspace*{-0.12cm}
+     \begin{beamercolorbox}[wd=\paperwidth,ht=2ex,dp=0.8ex,left]{frametitle}%
+    %   \hspace*{2ex}\insertframetitle%
+        % \vspace*{\fill}
+        \hspace*{2ex}\insertframetitle%
+        % \vspace*{\fill}
+     \end{beamercolorbox}}
